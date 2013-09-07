@@ -18,17 +18,7 @@ Ant_D<?xml version="1.0" encoding="utf-8"?>
     </TableRow>       
     <TableRow>
          
-        <AutoCompleteTextView
-            android:id="@+id/toNumber"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:textColor="#000000"
-            android:textColorHighlight="#000000"
-            android:textColorLink="#000000"
-            android:textStyle="bold"
-            android:width="250dip" />
+      
          
     </TableRow>
     <TableRow android:layout_marginTop="2dip">
@@ -39,5 +29,20 @@ Ant_D<?xml version="1.0" encoding="utf-8"?>
                 android:text="Show Selected Value"
                 android:layout_gravity="center_vertical|center_horizontal"/>  
      </TableRow>
-  
+    
+        final Button Send = (Button) findViewById(R.id.Send);
+          
+        // Initialize AutoCompleteTextView values
+         
+            textView = (AutoCompleteTextView) findViewById(R.id.toNumber);
+             
+            //Create adapter    
+            adapter = new ArrayAdapter<String>
+                      (this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());
+            textView.setThreshold(1);
+             
+           //Set adapter to AutoCompleteTextView
+            textView.setAdapter(adapter);
+            textView.setOnItemSelectedListener(this);
+            textView.setOnItemClickListener(this);
 </TableLayout>
